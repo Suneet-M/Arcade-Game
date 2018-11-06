@@ -28,6 +28,8 @@ class Enemy {
 class Player {
     constructor(){
         this.sprite = 'images/char-boy.png';
+        this.x = 200;
+        this.y = 375;
     }
 
     update(dt) {
@@ -35,18 +37,31 @@ class Player {
     }
 
     render() {
-        ctx.drawimage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-    handleInput() {
-        
+    handleInput(key) {
+        console.log(key);
+        if (key == 'left') {
+            (this.x !== 0) ? this.x -= 100 : 1;
+        }
+        if (key == 'up') {
+            (this.y !== 0) ? this.y -= 75 : 1;
+        }
+        if (key == 'down') {
+            (this.y !== 375) ? this.y += 75 : 1;
+        }
+        if (key == 'right') {
+            (this.x !== 400) ? this.x += 100 : 1;
+        }
     }
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+let allEnemies = [new Enemy()];
+let player = new Player();
 
 
 // This listens for key presses and sends the keys to your
