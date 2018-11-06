@@ -41,18 +41,18 @@ class Player {
     }
 
     handleInput(key) {
-        console.log(key);
+        // console.log(key);
         if (key == 'left') {
-            (this.x !== 0) ? this.x -= 100 : 1;
+            (this.x !== -2) ? this.x -= 101 : 1;
         }
         if (key == 'up') {
-            (this.y !== 0) ? this.y -= 75 : 1;
+            (this.y !== -40) ? this.y -= 83 : 1;
         }
         if (key == 'down') {
-            (this.y !== 375) ? this.y += 75 : 1;
+            (this.y !== 375) ? this.y += 83 : 1;
         }
         if (key == 'right') {
-            (this.x !== 400) ? this.x += 100 : 1;
+            (this.x !== 402) ? this.x += 101 : 1;
         }
     }
 }
