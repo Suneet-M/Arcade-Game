@@ -1,6 +1,18 @@
-frontend-nanodegree-arcade-game
-===============================
+# Frogger
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Instructions
+- The aim of the game is to take the player across the roads to the water while avoiding the bugs.
+- Arrow keys can be used to move the player.
+- Beware the bugs keep changing their speeds.
+- Every time your player touches a bug one life is lost and player returns to starting position.
+- A total of 8 lives are given in each game. Life counter is given in the score panel.
+- You win the game as soon as your player reaches the water and a new game starts.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Future Updates
+- [ ] Implement a win modal screen
+- [ ] Player would not return to start position and no life reset when win modal is displayed
+- [ ] Add a move counter
+- [ ] Add reset button
+- [ ] Implement a start screen
+- [ ] Give option to select between characters
+- [ ] Randomise number of bugs instead of fixed value at 2 bugs per line
