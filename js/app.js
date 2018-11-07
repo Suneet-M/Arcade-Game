@@ -37,7 +37,7 @@ class Enemy {
         // For player, the feet's position is taken into consideration
         if(player.feetX <= this.endX && player.feetX >= this.x) {
             if(player.feetY <= this.endY && player.feetY >= this.y) {
-                console.log('lose');
+                resetPlayer();
             }
         }
     }
@@ -119,3 +119,8 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+function resetPlayer() {
+    player.x = player.startX;
+    player.y = player.startY;
+}
