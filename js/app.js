@@ -128,18 +128,39 @@ function checkCollision(enemy){
     if(player.feetX <= enemy.endX && player.feetX >= enemy.x) {
         if(player.feetY <= enemy.endY && player.feetY >= enemy.y) {
             resetPlayer();
+            reduceLives();
         }
     }
 }
 
 function checkWin() {
     if(player.y == -40) {
-        console.log('You win');
+        console.log('You win');//temporary
         resetPlayer();
+        resetLives();
     }
 }
 
 function resetPlayer() {
     player.x = player.startX;
     player.y = player.startY;
+}
+
+let lives = Array.from(document.querySelectorAll('.fa-heart'));
+let i = lives.length;
+function reduceLives() {
+    i -= 1;
+    if(i < 0) {
+        console.log('You Lose');//temporary
+    }
+    else {
+        lives[i].classList.remove('fas');
+        lives[i].classList.add('far');
+    }
+}
+
+function resetLives() {
+    for(i=0; i<lives.length; i++) {
+        lives[i].classList.add('fas');
+    }
 }
