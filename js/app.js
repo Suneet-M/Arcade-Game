@@ -33,6 +33,7 @@ class Enemy {
         }
 
         checkCollision(this);
+        checkWin();
     }
 
     // Draws the enemy on the screen
@@ -128,6 +129,13 @@ function checkCollision(enemy){
         if(player.feetY <= enemy.endY && player.feetY >= enemy.y) {
             resetPlayer();
         }
+    }
+}
+
+function checkWin() {
+    if(player.y == -40) {
+        console.log('You win');
+        resetPlayer();
     }
 }
 
