@@ -32,14 +32,7 @@ class Enemy {
             this.random = Math.random() * (200-100) + 100; 
         }
 
-        // Check Collision :
-        // By mapping a rectangle for the enemy from [x to endX] and [y to endY]
-        // For player, the feet's position is taken into consideration
-        if(player.feetX <= this.endX && player.feetX >= this.x) {
-            if(player.feetY <= this.endY && player.feetY >= this.y) {
-                resetPlayer();
-            }
-        }
+        checkCollision(this);
     }
 
     // Draws the enemy on the screen
@@ -119,6 +112,19 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+// Functions
+
+function checkCollision(enemy){
+    // By mapping a rectangle for the enemy from [x to endX] and [y to endY]
+    // For player, the feet's position is taken into consideration
+    if(player.feetX <= enemy.endX && player.feetX >= enemy.x) {
+        if(player.feetY <= enemy.endY && player.feetY >= enemy.y) {
+            resetPlayer();
+        }
+    }
+}
 
 function resetPlayer() {
     player.x = player.startX;
