@@ -78,17 +78,22 @@ class Player {
         // Each block on the convas is layed as 101px*83px
         // so character must move the same pixels
         // to keep him/her centered on the block
-        if (key == 'left') {
-            (this.x !== -2) ? this.x -= 101 : 1;
-        }
-        if (key == 'up') {
-            (this.y !== -40) ? this.y -= 83 : 1;
-        }
-        if (key == 'down') {
-            (this.y !== 375) ? this.y += 83 : 1;
-        }
-        if (key == 'right') {
-            (this.x !== 402) ? this.x += 101 : 1;
+        switch (key) {
+            case 'left':
+                (this.x !== -2) ? this.x -= 101 : 1;
+                break;
+
+            case 'up':
+                (this.y !== -40) ? this.y -= 83 : 1;
+                break;
+
+            case 'down':
+                (this.y !== 375) ? this.y += 83 : 1;
+                break;
+
+            case 'right':
+                (this.x !== 402) ? this.x += 101 : 1;
+                break;
         }
     }
 }
