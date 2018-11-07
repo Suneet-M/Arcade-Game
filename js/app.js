@@ -7,9 +7,11 @@ class Enemy {
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
-        this.x = -120;
+        this.startX = x;
+        this.x = this.startX;
         this.y = y;
         this.sp = speed;
+        this.random = 100;
     }
 
     // Update the enemy's position, required method for game
@@ -18,9 +20,10 @@ class Enemy {
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
-        this.x += 1*this.sp*dt;
+        this.x += this.sp * this.random * dt;
         if (this.x >= 520) {
-            this.x = -120;
+            this.x = this.startX;
+            this.random = Math.random() * (200-100) + 100;
         }
     }
 
@@ -67,8 +70,9 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [new Enemy(100, 230), new Enemy(200, 147),
-                  new Enemy(120, 64), new Enemy(150, 147, 10)];
+let allEnemies = [new Enemy(1.2, 64), new Enemy(1.8, 64, -250),
+                  new Enemy(2, 147), new Enemy(1.5, 147, -100),
+                  new Enemy(1, 230), new Enemy(2.2, 230, -150)];
 let player = new Player();
 
 // This listens for key presses and sends the keys to your
