@@ -8,6 +8,10 @@
 body {
     text-align: center;
 	font-family: Coda, cursive;
+	color: #fff;
+	background: #1f4037;
+	background: -webkit-linear-gradient(to left bottom, #99f2c8, #1f4037);
+	background: linear-gradient(to left bottom, #99f2c8, #1f4037);
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
