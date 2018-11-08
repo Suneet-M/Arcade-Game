@@ -90,6 +90,10 @@ li {
 	background: rgba(0, 0, 0, 0);
 }
 
+.close:hover {
+	color: white;
+}
+
 .content-wrapper {
 	position: relative;
 	background: #2F3C40;
@@ -136,4 +140,9 @@ li {
     font-size: 20px;
     background-color: #fff;
     color: #3E4F55;
+    transition: all 0.2s ease;
+}
+
+#reset:hover {
+    box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
 }
