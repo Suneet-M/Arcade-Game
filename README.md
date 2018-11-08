@@ -9,8 +9,9 @@
 - You win the game as soon as your player reaches the water and a new game starts.
 
 ## Future Updates
-- [ ] Implement a win modal screen
-- [ ] Player would not return to start position and no life reset when win modal is displayed
+- [x] Implement a win modal screen
+- [ ] Player would not return to start position, no life reset, and pause enemy position when win modal is displayed
+- [ ] Use animate.css for modal
 - [ ] Add a move counter
 - [ ] Add reset button
 - [ ] Implement a start screen
