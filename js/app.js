@@ -101,9 +101,9 @@ class Player {
 
 
 // Enemy and PLayer instances
-let allEnemies = [new Enemy(1.2, 64), new Enemy(1.8, 64, -250),
-                  new Enemy(2, 147), new Enemy(1.5, 147, -100),
-                  new Enemy(1, 230), new Enemy(2.2, 230, -150)];
+let allEnemies = [new Enemy(1.5, 64), new Enemy(3, 64, -550), new Enemy(6, 64, -1000),
+                  new Enemy(2, 147), new Enemy(1.2, 147, -200), new Enemy(3, 147, -800),
+                  new Enemy(1, 230), new Enemy(2.2, 230, -450)];
 let player = new Player();
 
 
