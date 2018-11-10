@@ -177,7 +177,7 @@ function showModal() {
     document.querySelector('.modal-back')
             .classList.add('show');
     document.querySelector('.modal-body')
-            .classList.add('show');
+            .classList.add('show', 'tada');
 
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
@@ -191,10 +191,16 @@ function showModal() {
 }
 
 function hideModal() {
-    document.querySelector('.modal-back')
-            .classList.remove('show');
     document.querySelector('.modal-body')
-            .classList.remove('show');
+            .classList.add('bounceOut');
+
+    // to allow time for animation
+    setTimeout(() => {
+        document.querySelector('.modal-body')
+                .classList.remove('show', 'tada', 'bounceOut');
+        document.querySelector('.modal-back')
+                .classList.remove('show');
+    },780)
 
     // remove button event listeners
     document.querySelector('.close')
