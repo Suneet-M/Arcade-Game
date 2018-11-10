@@ -10,7 +10,7 @@
 
 ## Future Updates
 - [x] Implement a win modal screen
-- [ ] Player would not return to start position, no life reset, and pause enemy position when win modal is displayed
+- [x] Player would not return to start position, no life reset, and pause enemy position when win modal is displayed
 - [ ] Use animate.css for modal
 - [ ] Add a move counter
 - [ ] Add reset button

@@ -171,12 +171,6 @@ function resetGame() {
     hideModal();
 }
 
-// action buttons event listeners
-document.querySelector('.close') // modal close button
-        .addEventListener('click', hideModal);
-document.querySelector('#reset') // play again button
-        .addEventListener('click', resetGame);
-
 function showModal() {
     document.querySelector('.modal-back')
             .classList.add('show');
@@ -186,6 +180,12 @@ function showModal() {
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
     document.querySelector('.score-panel').innerHTML;
+
+    // action buttons event listeners
+    document.querySelector('.close') // modal close button
+        .addEventListener('click', hideModal);
+    document.querySelector('#reset') // play again button
+        .addEventListener('click', resetGame);
 }
 
 function hideModal() {
@@ -193,4 +193,10 @@ function hideModal() {
             .classList.remove('show');
     document.querySelector('.modal-body')
             .classList.remove('show');
+
+    // remove button event listeners
+    document.querySelector('.close')
+        .removeEventListener('click', hideModal);
+    document.querySelector('#reset')
+        .removeEventListener('click', resetGame);
 }
