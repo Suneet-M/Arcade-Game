@@ -133,7 +133,7 @@ li {
     right: 20px;
 }
 
-#reset {
+#play-again {
 	border: 0;
     border-radius: 5px;
     cursor: pointer;
@@ -144,6 +144,6 @@ li {
     transition: all 0.2s ease;
 }
 
-#reset:hover {
+#play-again:hover {
     box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
 }

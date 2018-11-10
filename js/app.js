@@ -173,38 +173,34 @@ function resetGame() {
     Engine.start();
 }
 
+const modalBody = document.querySelector('.modal-body'),
+      modalBack = document.querySelector('.modal-back'),
+      closeButton = document.querySelector('.close'),
+      playAgainButton = document.querySelector('#play-again');
+
 function showModal() {
-    document.querySelector('.modal-back')
-            .classList.add('show');
-    document.querySelector('.modal-body')
-            .classList.add('show', 'tada');
+    modalBack.classList.add('show');
+    modalBody.classList.add('show', 'tada');
 
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
     document.querySelector('.score-panel').innerHTML;
 
     // action buttons event listeners
-    document.querySelector('.close') // modal close button
-        .addEventListener('click', hideModal);
-    document.querySelector('#reset') // play again button
-        .addEventListener('click', resetGame);
+    closeButton.addEventListener('click', hideModal);
+    playAgainButton.addEventListener('click', resetGame);
 }
 
 function hideModal() {
-    document.querySelector('.modal-body')
-            .classList.add('bounceOut');
+    modalBody.classList.add('bounceOut');
 
     // to allow time for animation
     setTimeout(() => {
-        document.querySelector('.modal-body')
-                .classList.remove('show', 'tada', 'bounceOut');
-        document.querySelector('.modal-back')
-                .classList.remove('show');
+        modalBody.classList.remove('show', 'tada', 'bounceOut');
+        modalBack.classList.remove('show');
     },780)
 
     // remove button event listeners
-    document.querySelector('.close')
-        .removeEventListener('click', hideModal);
-    document.querySelector('#reset')
-        .removeEventListener('click', resetGame);
+    closeButton.removeEventListener('click', hideModal);
+    playAgainButton.removeEventListener('click', resetGame);
 }
