@@ -166,9 +166,11 @@ function resetLives() {
 }
 
 function resetGame() {
+    player.win = false;
     resetPlayer();
     resetLives();
     hideModal();
+    Engine.start();
 }
 
 function showModal() {
