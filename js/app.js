@@ -136,7 +136,7 @@ function checkCollision(enemy){
 function checkWin() {
     if(player.y == -40) {
         player.win = true;
-        toggleModal();
+        showModal();
         console.log('You win');//temporary
     }
 }
@@ -168,22 +168,29 @@ function resetLives() {
 function resetGame() {
     resetPlayer();
     resetLives();
-    toggleModal();
+    hideModal();
 }
 
+// action buttons event listeners
 document.querySelector('.close') // modal close button
-        .addEventListener('click', toggleModal);
+        .addEventListener('click', hideModal);
 document.querySelector('#reset') // play again button
         .addEventListener('click', resetGame);
 
-function toggleModal() {
+function showModal() {
     document.querySelector('.modal-back')
-            .classList.toggle('show');
+            .classList.add('show');
     document.querySelector('.modal-body')
-            .classList.toggle('show');
+            .classList.add('show');
 
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
     document.querySelector('.score-panel').innerHTML;
+}
 
+function hideModal() {
+    document.querySelector('.modal-back')
+            .classList.remove('show');
+    document.querySelector('.modal-body')
+            .classList.remove('show');
 }
