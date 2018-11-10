@@ -3,7 +3,6 @@ class Enemy {
     constructor(speed, y, x = -120) {
         this.sprite = 'images/enemy-bug.png';
         this.startX = x;
-
         this.x = this.startX;
         this.y = y;
 
@@ -50,9 +49,10 @@ class Player {
         // Placed the player's feet in center of the block
         this.startX = 200;
         this.startY = 375;
-
         this.x = this.startX;
         this.y = this.startY;
+
+        this.win = false;
     }
 
     // Approxiamte location of player's feet using block's dimensions
@@ -135,7 +135,7 @@ function checkCollision(enemy){
 
 function checkWin() {
     if(player.y == -40) {
-        resetPlayer();
+        player.win = true;
         toggleModal();
         console.log('You win');//temporary
     }
