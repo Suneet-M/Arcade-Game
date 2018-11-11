@@ -176,8 +176,8 @@ const modalBody = document.querySelector('.modal-body')
       modalBodyWin = document.querySelector('.modal-win'),
       modalBodyLose = document.querySelector('.modal-lose'),
       modalBack = document.querySelector('.modal-back'),
-      closeButton = document.querySelector('.close'),
-      resetButtons = document.querySelector('.reset');
+      closeButtons = Array.from(document.querySelectorAll('.close')),
+      resetButtons = Array.from(document.querySelectorAll('.reset'));
 
 function showModal(status) {
     modalBack.classList.add('show');
@@ -194,9 +194,8 @@ function showModal(status) {
     document.querySelector('.content').innerHTML =
     document.querySelector('.score-panel').innerHTML;
 
-    // action buttons event listeners
-    closeButton.addEventListener('click', hideModal);
-    resetButton.addEventListener('click', resetGame);
+    // add event listeners
+    toggleListeners('on');
 }
 
 function hideModal() {
@@ -208,7 +207,23 @@ function hideModal() {
         modalBack.classList.remove('show');
     },780)
 
-    // remove button event listeners
-    closeButton.removeEventListener('click', hideModal);
-    resetButtons.removeEventListener('click', resetGame);
+    // remove event listeners
+    toggleListeners('off');
+}
+
+function toggleListeners(sw) {
+    switch (sw) {
+        case 'on':
+            closeButtons.forEach((button) =>
+                button.addEventListener('click', hideModal));
+            resetButtons.forEach((button) =>
+                button.addEventListener('click', resetGame));
+            break;
+
+        case 'off':
+            closeButtons.forEach((button) =>
+                button.removeEventListener('click', hideModal));
+            resetButtons.forEach((button) =>
+                button.removeEventListener('click', resetGame));
+    }
 }
