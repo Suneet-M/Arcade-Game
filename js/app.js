@@ -133,14 +133,6 @@ function checkCollision(enemy){
     }
 }
 
-function checkWin() {
-    if(player.y == -40) {
-        player.win = true;
-        num = 0; // to act on first modal from array
-        showModal();
-    }
-}
-
 function resetPlayer() {
     player.x = player.startX;
     player.y = player.startY;
@@ -152,14 +144,34 @@ function reduceLives() {
     i--;
     lives[i].classList.remove('fas');
     lives[i].classList.add('far');
-    if(i == 0) {
-        num = 1; // to act on second modal from array
-        showModal();
+    checkLose();
+}
+
+function checkWin() {
+    if(player.y == -40) {
+        gameWin();
     }
 }
 
+function gameWin() {
+    player.win = true;
+    num = 0; // to act on first modal from array
+    showModal();
+}
+
+function checkLose() {
+    if(i == 0) {
+        gameLose();
+    }
+}
+
+function gameLose() {
+    num = 1; // to act on second modal from array
+    showModal();
+}
+
 function resetLives() {
-    for(i=0; i<lives.length; i++) {
+    for(i = 0; i < lives.length; i++) {
         lives[i].classList.add('fas');
     }
 }
