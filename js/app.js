@@ -136,7 +136,8 @@ function checkCollision(enemy){
 function checkWin() {
     if(player.y == -40) {
         player.win = true;
-        showModal('win');
+        num = 0; // to act on first modal from array
+        showModal();
     }
 }
 
@@ -150,7 +151,8 @@ let i = lives.length;
 function reduceLives() {
     i--;
     if(i < 0) {
-        showModal('lose');
+        num = 1; // to act on second modal from array
+        showModal();
     }
     else {
         lives[i].classList.remove('fas');
@@ -172,23 +174,22 @@ function resetGame() {
     Engine.start();
 }
 
-const modalBody = document.querySelector('.modal-body')
-      modalBodyWin = document.querySelector('.modal-win'),
-      modalBodyLose = document.querySelector('.modal-lose'),
-      modalBack = document.querySelector('.modal-back'),
+const modalBack = document.querySelector('.modal-back'),
+      modalBody = Array.from(document.querySelectorAll('.modal-body')), // both modals added to array
       closeButtons = Array.from(document.querySelectorAll('.close')),
       resetButtons = Array.from(document.querySelectorAll('.reset'));
+let num;
+// 'num' will state which modal is in perspective for animating, showModal, hideModal, and toggleListeners
+// it will contribute to good performance because only the modal we want will have classes and listeners added.
 
-function showModal(status) {
+function showModal() {
     modalBack.classList.add('show');
 
-    // win modal or lose modal
-    if(status == 'win') {
-        modalBodyWin.classList.add('show', 'tada');
-    }
-    if(status == 'lose') {
-        modalBodyLose.classList.add('show', 'wobble');
-    }
+    // display win modal or lose modal
+    modalBody[num].classList.add('show');
+
+    // entry animation for modal in perspective
+    (num == 0) ? modalBody[num].classList.add('tada') : modalBody[num].classList.add('wobble');
 
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
@@ -199,11 +200,11 @@ function showModal(status) {
 }
 
 function hideModal() {
-    modalBody.classList.add('bounceOut');
+    modalBody[num].classList.add('bounceOut'); // exit animation
 
     // to allow time for animation
     setTimeout(() => {
-        modalBody.classList.remove('show', 'tada', 'wobble', 'bounceOut');
+        modalBody[num].classList.remove('show', 'tada', 'wobble', 'bounceOut');
         modalBack.classList.remove('show');
     },780)
 
@@ -214,16 +215,12 @@ function hideModal() {
 function toggleListeners(sw) {
     switch (sw) {
         case 'on':
-            closeButtons.forEach((button) =>
-                button.addEventListener('click', hideModal));
-            resetButtons.forEach((button) =>
-                button.addEventListener('click', resetGame));
+            closeButtons[num].addEventListener('click', hideModal);
+            resetButtons[num].addEventListener('click', resetGame);
             break;
 
         case 'off':
-            closeButtons.forEach((button) =>
-                button.removeEventListener('click', hideModal));
-            resetButtons.forEach((button) =>
-                button.removeEventListener('click', resetGame));
+            closeButtons[num].removeEventListener('click', hideModal);
+            resetButtons[num].removeEventListener('click', resetGame);
     }
 }
