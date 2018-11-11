@@ -150,13 +150,11 @@ let lives = Array.from(document.querySelectorAll('.fa-heart'));
 let i = lives.length;
 function reduceLives() {
     i--;
-    if(i < 0) {
+    lives[i].classList.remove('fas');
+    lives[i].classList.add('far');
+    if(i == 0) {
         num = 1; // to act on second modal from array
         showModal();
-    }
-    else {
-        lives[i].classList.remove('fas');
-        lives[i].classList.add('far');
     }
 }
 
