@@ -28,7 +28,9 @@
 		</div>
 	</div>
 	<div class="modal-back">
-		<div class="modal-body animated">
+
+		<!-- game win modal -->
+		<div class="modal-body modal-win animated">
 			<div class="modal-header">
 				<button class="close" type="button">
 					<i class="fas fa-times-circle"></i>
@@ -42,8 +44,27 @@
 
 				</div>
 				<div class="action">
-	                <button type="button" id="play-again" autofocus>
+	                <button type="button" class="reset" autofocus>
 						Play Again
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- game lose modal -->
+		<div class="modal-body modal-lose animated">
+			<div class="modal-header">
+				<button class="close" type="button">
+					<i class="fas fa-times-circle"></i>
+				</button>
+			</div>
+			<div class="content-wrapper">
+				<div class="content-header">
+					Sorry, You Lose!!!
+				</div>
+				<div class="action">
+	                <button type="button" class="reset" autofocus>
+						Try Again?
 					</button>
 				</div>
 			</div>

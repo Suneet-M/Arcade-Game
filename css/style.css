@@ -56,13 +56,13 @@ li {
 	transform: scale(1);
 }
 
+/*modal*/
 .modal-body {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	right: 0;
 	left: 0;
-	height: 220px;
 	width: 450px;
 	margin: auto;
 	transform: scale(0);
@@ -70,12 +70,7 @@ li {
 	animation-delay: 0s;
 }
 
-.modal-body.show {
-	transform: scale(1);
-}
-
 .modal-header {
-	background: #99B898 ;
 	width: 100%;
 	height: 40px;
 	border-radius: 10px 10px 0 0;
@@ -104,7 +99,6 @@ li {
 	border-radius: 0 0 10px 10px;
 	display: flex;
 	flex-flow: column nowrap;
-	color: #E5FCC2;
 }
 
 .content-header {
@@ -133,7 +127,7 @@ li {
     right: 20px;
 }
 
-#play-again {
+.reset {
 	border: 0;
     border-radius: 5px;
     cursor: pointer;
@@ -144,6 +138,44 @@ li {
     transition: all 0.2s ease;
 }
 
-#play-again:hover {
+.reset:hover {
     box-shadow: 2px 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/*win modal*/
+.modal-win.modal-body {
+	height: 220px;
+}
+
+.modal-win.show {
+	transform: scale(1);
+}
+
+.modal-win .modal-header {
+	background: #99B898;
+}
+
+.modal-win .content-wrapper {
+	color: #E5FCC2;
+}
+
+/*lose modal*/
+.modal-lose.modal-body {
+	height: 170px;
+}
+
+.modal-lose.show {
+	transform: scale(1);
+}
+
+.modal-lose .modal-header {
+	background: #D32F2F;
+}
+
+.modal-lose .content-wrapper {
+	color: #FF5722;
+}
+
+.modal-lose .reset {
+	color: #4CAF50;
 }

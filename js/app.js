@@ -136,8 +136,7 @@ function checkCollision(enemy){
 function checkWin() {
     if(player.y == -40) {
         player.win = true;
-        showModal();
-        console.log('You win');//temporary
+        showModal('win');
     }
 }
 
@@ -149,9 +148,9 @@ function resetPlayer() {
 let lives = Array.from(document.querySelectorAll('.fa-heart'));
 let i = lives.length;
 function reduceLives() {
-    i -= 1;
+    i--;
     if(i < 0) {
-        console.log('You Lose');//temporary
+        showModal('lose');
     }
     else {
         lives[i].classList.remove('fas');
@@ -173,14 +172,23 @@ function resetGame() {
     Engine.start();
 }
 
-const modalBody = document.querySelector('.modal-body'),
+const modalBody = document.querySelector('.modal-body')
+      modalBodyWin = document.querySelector('.modal-win'),
+      modalBodyLose = document.querySelector('.modal-lose'),
       modalBack = document.querySelector('.modal-back'),
       closeButton = document.querySelector('.close'),
-      playAgainButton = document.querySelector('#play-again');
+      resetButtons = document.querySelector('.reset');
 
-function showModal() {
+function showModal(status) {
     modalBack.classList.add('show');
-    modalBody.classList.add('show', 'tada');
+
+    // win modal or lose modal
+    if(status == 'win') {
+        modalBodyWin.classList.add('show', 'tada');
+    }
+    if(status == 'lose') {
+        modalBodyLose.classList.add('show', 'wobble');
+    }
 
     // to display lives directly fetch from score-panel
     document.querySelector('.content').innerHTML =
@@ -188,7 +196,7 @@ function showModal() {
 
     // action buttons event listeners
     closeButton.addEventListener('click', hideModal);
-    playAgainButton.addEventListener('click', resetGame);
+    resetButton.addEventListener('click', resetGame);
 }
 
 function hideModal() {
@@ -196,11 +204,11 @@ function hideModal() {
 
     // to allow time for animation
     setTimeout(() => {
-        modalBody.classList.remove('show', 'tada', 'bounceOut');
+        modalBody.classList.remove('show', 'tada', 'wobble', 'bounceOut');
         modalBack.classList.remove('show');
     },780)
 
     // remove button event listeners
     closeButton.removeEventListener('click', hideModal);
-    playAgainButton.removeEventListener('click', resetGame);
+    resetButtons.removeEventListener('click', resetGame);
 }

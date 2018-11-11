@@ -54,12 +54,13 @@ var Engine = (function(global) {
         lastTime = now;
 
         /* Use the browser's requestAnimationFrame function to call this
-         * function again as soon as the browser is able to draw another frame.
+         * function again as soon as the browser is able to draw another frame
+         * only untill player wins.
          */
         if (player.win) {
             win.cancelAnimationFrame(id);
         }
-        else{
+        else {
             id = win.requestAnimationFrame(main);
         }
     }
