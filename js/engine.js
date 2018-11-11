@@ -57,7 +57,7 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame
          * only untill player wins.
          */
-        if (player.win) {
+        if (player.win || player.lose) {
             win.cancelAnimationFrame(id);
         }
         else {

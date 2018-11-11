@@ -53,6 +53,7 @@ class Player {
         this.y = this.startY;
 
         this.win = false;
+        this.lose = false;
     }
 
     // Approxiamte location of player's feet using block's dimensions
@@ -166,6 +167,7 @@ function checkLose() {
 }
 
 function gameLose() {
+    player.lose = true;
     num = 1; // to act on second modal from array
     showModal();
 }
@@ -178,6 +180,7 @@ function resetLives() {
 
 function resetGame() {
     player.win = false;
+    player.lose = false;
     resetPlayer();
     resetLives();
     hideModal();
