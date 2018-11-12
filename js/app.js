@@ -12,11 +12,11 @@ class Enemy {
 
     // Used to check collision
     get endX() {
-        return this.x + 101;
+        return this.x + tileWidth;
     }
 
     get endY() {
-        return this.y + 83;
+        return this.y + tileHeight;
     }
 
     // To move the enemy
@@ -58,12 +58,12 @@ class Player {
 
     // Approxiamte location of player's feet using block's dimensions
     get feetY() {
-        return this.y + 83;
+        return this.y + tileHeight;
     }
 
     get feetX() {
         // Half of block's horizontal dimension used
-        return this.x + 50.5;
+        return this.x + (tileWidth/2);
     }
 
     update(dt) {
@@ -77,24 +77,24 @@ class Player {
 
     // To move the player
     handleInput(key) {
-        // Each block on the convas is layed as 101px*83px
+        // Each block on the canvas is layed as 101px*83px
         // so character must move the same pixels
         // to keep him/her centered on the block
         switch (key) {
             case 'left':
-                (this.x !== -2) ? this.x -= 101 : 1;
+                (this.x !== -2) ? this.x -= tileWidth : 1;
                 break;
 
             case 'up':
-                (this.y !== -40) ? this.y -= 83 : 1;
+                (this.y !== -40) ? this.y -= tileHeight : 1;
                 break;
 
             case 'down':
-                (this.y !== 375) ? this.y += 83 : 1;
+                (this.y !== 375) ? this.y += tileHeight : 1;
                 break;
 
             case 'right':
-                (this.x !== 402) ? this.x += 101 : 1;
+                (this.x !== 402) ? this.x += tileWidth : 1;
                 break;
         }
     }
@@ -107,6 +107,9 @@ let allEnemies = [new Enemy(1.5, 64), new Enemy(3, 64, -550), new Enemy(6, 64, -
                   new Enemy(1, 230), new Enemy(2.2, 230, -450)];
 let player = new Player();
 
+// Dimensions for every block on the canvas
+const tileWidth = 101,
+      tileHeight = 83;
 
 // Keypress Handler
 document.addEventListener('keyup', function(e) {
