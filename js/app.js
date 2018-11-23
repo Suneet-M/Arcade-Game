@@ -2,13 +2,13 @@
 // Enemies our player must avoid
 class Enemy {
     constructor(speed, y, x = -120) {
-        this.sprite = 'images/enemy-bug.png';
+		this.sprite = 'img/enemy-bug.png';
         this.startX = x;
         this.x = this.startX;
         this.y = y;
 
         this.sp = speed;
-        this.random = 100;
+		this.random = 100;
     }
 
     // Used to check collision
@@ -45,7 +45,7 @@ class Enemy {
 // Our Player
 class Player {
     constructor() {
-        this.sprite = 'images/char-boy.png';
+		this.sprite = 'img/char-boy.png';
 
         // Placed the player's feet in center of the block
         this.startX = 200;
