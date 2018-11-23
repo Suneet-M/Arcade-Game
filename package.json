@@ -1,0 +1,22 @@
+{
+  "name": "arcade-game",
+  "version": "1.0.0",
+  "description": "A clone of the arcade game : Frogger",
+  "main": "\u001b[D\u001bhtml)\u001b[C\u001b[C\u001b[C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suneet-M/Arcade-Game.git"
+  },
+  "author": "Suneet Mehta",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Suneet-M/Arcade-Game/issues"
+  },
+  "homepage": "https://github.com/Suneet-M/Arcade-Game#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
