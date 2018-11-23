@@ -3,10 +3,12 @@
 const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('default', function () {
-	gulp.watch('css/**/*.css', ['styles']);
-	gulp.watch('js/**/*.js', ['scripts']);
-});
+gulp.task('default', ['styles', 'scripts'],
+	function () {
+		gulp.watch('css/**/*.css', ['styles']);
+		gulp.watch('js/**/*.js', ['scripts']);
+	}
+);
 
 gulp.task('styles', function () {
 	gulp
