@@ -3,12 +3,19 @@
 const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('default', ['styles', 'scripts'],
+gulp.task('default', ['copy-html', 'styles', 'scripts'],
 	function () {
+		gulp.watch('./index.html', ['copy-html']);
 		gulp.watch('css/**/*.css', ['styles']);
 		gulp.watch('js/**/*.js', ['scripts']);
 	}
 );
+
+gulp.task('copy-html', function() {
+	gulp
+		.src('./index.html')
+		.pipe(gulp.dest('dist/'));
+});
 
 gulp.task('styles', function () {
 	gulp
