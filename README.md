@@ -1,7 +1,7 @@
 # Frogger
 
 This project is a simple clone of the arcade game: Frogger.\
-The game is played by launching the index.html file in the game's directory.\
+The game's dependencies have to be installed first by running `npm install` in a terminal in the game's root directory. Then it can be played by running `gulp` in the terminal.\
 Other files in respective folders do not need any action.
 
 ## Instructions
