@@ -1,8 +1,8 @@
 # Frogger
 
 This project is a simple clone of the arcade game: Frogger.\
-The game's dependencies have to be installed first by running `npm install` in a terminal in the game's root directory. Then it can be played by running `gulp` in the terminal.\
-Other files in respective folders do not need any action.
+To play the game click [here](https://www.suneet-m.github.io/Arcade-Game/), and the page will be redirected.
+Please go through [instructions](#instructions) before playing.
 
 ## Instructions
 - The aim of the game is to take the player across the roads to the water while avoiding the bugs.
