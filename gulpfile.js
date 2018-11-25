@@ -12,7 +12,7 @@ gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 		gulp.watch('js/**/*.js', ['scripts']).on('change', browserSync.reload);
 
 		browserSync.init({
-			server: 'dist/'
+			server: 'docs/'
 		});
 	}
 );
@@ -20,25 +20,25 @@ gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 gulp.task('copy-html', function() {
 	gulp
 		.src('./index.html')
-		.pipe(gulp.dest('dist/'));
+		.pipe(gulp.dest('docs/'));
 });
 
 gulp.task('copy-images', function() {
 	gulp
 		.src('img/*')
-		.pipe(gulp.dest('dist/img/'));
+		.pipe(gulp.dest('docs/img/'));
 });
 
 gulp.task('styles', function () {
 	gulp
 		.src('css/**/*.css')
 		.pipe(autoprefixer({browsers: ['last 2 versions']}))
-		.pipe(gulp.dest('dist/css/'))
+		.pipe(gulp.dest('docs/css/'))
 		.pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function () {
 	gulp
 		.src('js/**/*.js')
-		.pipe(gulp.dest('dist/js/'));
+		.pipe(gulp.dest('docs/js/'));
 });
