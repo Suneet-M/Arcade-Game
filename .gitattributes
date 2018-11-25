@@ -3,7 +3,6 @@
 
 # Denote all files that are truly binary and should not be modified.
 img/* binary
-./favicon.png binary
 
 # Exclude certain files when downloading as zip from github.
 docs export-ignore
