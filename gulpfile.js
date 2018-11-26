@@ -5,7 +5,8 @@ const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync').create(),
 	concat = require('gulp-concat'),
-	babel = require('gulp-babel');
+	babel = require('gulp-babel'),
+	csso = require('gulp-csso');
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 	function () {
@@ -42,6 +43,7 @@ gulp.task('styles', function () {
 		.src('css/**/*.css')
 		.pipe(autoprefixer({browsers: ['last 2 versions']})) // add vendor prefixes
 		.pipe(concat('all.css')) // unify all css files
+		.pipe(csso()) // minify css files
 		.pipe(gulp.dest('docs/css/'))
 		.pipe(browserSync.stream()); // stream changes to browsersync site
 });
