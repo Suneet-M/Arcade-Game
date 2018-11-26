@@ -6,6 +6,7 @@ img/* binary
 
 # Exclude certain files when downloading as zip from github.
 docs export-ignore
+.github export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 .eslintrc.json export-ignore
