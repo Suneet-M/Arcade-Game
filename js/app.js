@@ -214,6 +214,9 @@ function showModal() {
 
 	// add event listeners
 	toggleListeners('on');
+
+	// focus on reset button in respective modal
+	resetButtons[num].focus();
 }
 
 function hideModal() {
