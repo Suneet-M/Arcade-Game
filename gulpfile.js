@@ -8,7 +8,9 @@ const gulp = require('gulp'),
 	babel = require('gulp-babel'),
 	csso = require('gulp-csso'),
 	uglify = require('gulp-uglify'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant');
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 	function () {
@@ -36,6 +38,10 @@ gulp.task('copy-html', function() {
 gulp.task('copy-images', function() {
 	gulp
 		.src('img/*')
+		.pipe(imagemin({
+			use: [pngquant()],
+			progressive: true
+		}))
 		.pipe(gulp.dest('docs/img/'));
 });
 
