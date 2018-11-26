@@ -4,7 +4,8 @@
 const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync').create(),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat'),
+	babel = require('gulp-babel');
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 	function () {
@@ -53,6 +54,9 @@ gulp.task('scripts', function () {
 			'js/**/engine.js',
 			'js/**/app.js',
 		]) // to preserve the sequence of code injected in index.html
+		.pipe(babel({
+			presets: ['@babel/env']
+		})) // convert es6 to es5 for wide browser support
 		.pipe(concat('all.js')) // unify all js files
 		.pipe(gulp.dest('docs/js/'));
 });

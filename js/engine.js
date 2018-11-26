@@ -194,4 +194,4 @@ var Engine = (function(global) {
 	return {
 		start:main
 	};
-})(this);
+})(window);
