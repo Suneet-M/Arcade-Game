@@ -1,7 +1,7 @@
 # Frogger
 
 This project is a simple clone of the arcade game: Frogger.\
-To play the game click [here](https://www.suneet-m.github.io/Arcade-Game/), and the page will be redirected.
+To play the game click [here](https://suneet-m.github.io/Arcade-Game/), and the page will be redirected.
 Please go through [instructions](#instructions) before playing.\
 If you want to download and play the game follow this [guide](#how-to-install).
 
