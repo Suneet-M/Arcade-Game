@@ -6,7 +6,8 @@ const gulp = require('gulp'),
 	browserSync = require('browser-sync').create(),
 	concat = require('gulp-concat'),
 	babel = require('gulp-babel'),
-	csso = require('gulp-csso');
+	csso = require('gulp-csso'),
+	uglify = require('gulp-uglify');
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'],
 	function () {
@@ -43,7 +44,7 @@ gulp.task('styles', function () {
 		.src('css/**/*.css')
 		.pipe(autoprefixer({browsers: ['last 2 versions']})) // add vendor prefixes
 		.pipe(concat('all.css')) // unify all css files
-		.pipe(csso()) // minify css files
+		.pipe(csso()) // minify css
 		.pipe(gulp.dest('docs/css/'))
 		.pipe(browserSync.stream()); // stream changes to browsersync site
 });
@@ -60,5 +61,6 @@ gulp.task('scripts', function () {
 			presets: ['@babel/env']
 		})) // convert es6 to es5 for wide browser support
 		.pipe(concat('all.js')) // unify all js files
+		.pipe(uglify()) // minify js
 		.pipe(gulp.dest('docs/js/'));
 });
