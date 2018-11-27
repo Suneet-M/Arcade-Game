@@ -67,10 +67,6 @@ class Player {
 		return this.x + (tileWidth/2);
 	}
 
-	update(dt) {
-
-	}
-
 	// Draws the player on the screen
 	render() {
 		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
