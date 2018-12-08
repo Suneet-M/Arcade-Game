@@ -110,6 +110,7 @@ const tileWidth = 101,
 
 // Keypress Handler
 document.addEventListener('keyup', function(e) {
+
 	var allowedKeys = {
 		37: 'left',
 		38: 'up',
@@ -120,6 +121,27 @@ document.addEventListener('keyup', function(e) {
 	player.handleInput(allowedKeys[e.keyCode]);
 });
 
+// On screen key press handler
+document.querySelector('.arrow-keys')
+	.addEventListener('click', function(e) {
+		const key = e.target.classList.value;
+		switch (key) {
+		case 'fas fa-arrow-up':
+			player.handleInput('up');
+			break;
+
+		case 'fas fa-arrow-down':
+			player.handleInput('down');
+			break;
+
+		case 'fas fa-arrow-left':
+			player.handleInput('left');
+			break;
+
+		case 'fas fa-arrow-right':
+			player.handleInput('right');
+		}
+	});
 
 // Functions
 
