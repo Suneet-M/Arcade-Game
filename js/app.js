@@ -131,6 +131,9 @@ document.querySelector('.arrow-keys')
 
 // Functions
 
+document.querySelector('.restart')
+	.addEventListener('click', resetGame);
+
 function checkCollision(enemy){
 	// By mapping a rectangle for the enemy from [x to endX] and [y to endY]
 	// For player, the feet's position is taken into consideration

@@ -25,6 +25,7 @@ body {
 	padding-top: 20px;
 	width: 500px;
 	margin: auto;
+	position: relative;
 }
 
 /*arrow-keys*/
@@ -49,6 +50,13 @@ body {
 li {
 	display: inline-block;
 	list-style: none;
+}
+
+.restart {
+	position: absolute;
+	right: 5px;
+	top: 113px;
+	cursor: pointer;
 }
 
 /*modal*/
