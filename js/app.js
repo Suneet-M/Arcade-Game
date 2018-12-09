@@ -124,23 +124,9 @@ document.addEventListener('keyup', function(e) {
 // On screen key press handler
 document.querySelector('.arrow-keys')
 	.addEventListener('click', function(e) {
-		const key = e.target.classList.value;
-		switch (key) {
-		case 'fas fa-arrow-up':
-			player.handleInput('up');
-			break;
-
-		case 'fas fa-arrow-down':
-			player.handleInput('down');
-			break;
-
-		case 'fas fa-arrow-left':
-			player.handleInput('left');
-			break;
-
-		case 'fas fa-arrow-right':
-			player.handleInput('right');
-		}
+		const key = e.target.dataset.direction;
+		
+		player.handleInput(key);
 	});
 
 // Functions
