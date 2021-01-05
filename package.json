@@ -31,7 +31,7 @@
     "imagemin-pngquant": "^6.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "js-yaml": "^3.13.1",
     "loadash": "^1.0.0",
     "mixin-deep": "^2.0.1",
